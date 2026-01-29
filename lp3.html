@@ -5,27 +5,115 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="https://via.placeholder.com/32/1B4332/D4AF37?text=A">
-  <link rel="stylesheet" href="lp3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Алтын Жол: Транспортно-логистическая компания</title>
+  <title>Услуги | Алтын Жол</title>
+  
   <style>
-      .card-img-top {
-          height: 350px;
-          object-fit: cover;
-          border-radius: 10px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
-      .container { padding-top: 20px; padding-bottom: 20px; }
-      h3 { color: #1B4332; font-weight: bold; }
-      hr { margin: 40px 0; border-top: 1px solid #eee; }
+    :root {
+      --main-green: #1B4332;
+      --accent-gold: #D4AF37;
+      --light-gray: #f8f9fa;
+      --text-dark: #2d2d2d;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: #fff;
+    }
+
+    h1, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+    /* Навигация */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--main-green);
+    }
+    .nav-link {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--text-dark) !important;
+    }
+
+    /* Заголовок страницы */
+    .page-header {
+      background: var(--main-green);
+      color: white;
+      padding: 100px 0 60px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    .page-header h1 { letter-spacing: 2px; }
+    .page-header::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-gold);
+      margin: 20px auto 0;
+    }
+
+    /* Стили блоков услуг */
+    .service-row {
+      padding: 60px 0;
+      align-items: center;
+      transition: 0.3s;
+    }
+    
+    .service-row:hover {
+      background-color: #fcfcfc;
+    }
+
+    .service-img {
+      height: 380px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: 0.4s;
+    }
+    
+    .service-row:hover .service-img {
+      transform: scale(1.02);
+    }
+
+    h3 {
+      color: var(--main-green);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #eee;
+      margin: 0;
+    }
+
+    /* Футер */
+    footer {
+      background: var(--main-green);
+      color: white;
+      padding: 50px 0;
+    }
+    footer strong { color: var(--accent-gold); }
   </style>
 </head>
 <body>
+
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+      <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img src="https://via.placeholder.com/150x90/1B4332/D4AF37?text=ALTYN+ZHOL" alt="Logo" width="150" height="90" class="d-inline-block align-top">
+          <img src="https://via.placeholder.com/150x90/1B4332/D4AF37?text=ALTYN+ZHOL" alt="Logo" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
@@ -42,108 +130,114 @@
     </nav>
   </header>
 
-  <div class="container mt-5">
-    <div class="row align-items-center">
+  <div class="page-header">
+    <div class="container">
+      <h1>Наши услуги</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row service-row">
       <div class="col-md-6">
         <h3>Таможенное оформление</h3>
-        <p>Профессиональные брокеры, подготовка полного пакета документов в соответствии с таможенным законодательством РК и ТС, оплата пошлин, информирование и предоставление таможенных документов в таможенные органы для предварительного оформления.</p>
+        <p>Профессиональные брокеры, подготовка полного пакета документов в соответствии с таможенным законодательством РК и ТС. Мы обеспечиваем быструю оплату пошлин и предварительное оформление в таможенных органах.</p>
       </div>
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800" class="card-img-top" alt="Customs">
+        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800" class="service-img" alt="Customs">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
-      <div class="col-md-6">
+    <div class="row service-row">
+      <div class="col-md-6 order-md-2">
         <h3>Железнодорожные перевозки</h3>
-        <p>Экспедирование грузов в экспортном, импортном, внутриреспубликанском и транзитном сообщениях, в вагонах привлеченного парка и контейнерные перевозки. Доставка по принципу "от двери до двери", регистрация в АСУ ДКР.</p>
+        <p>Экспедирование грузов во всех видах сообщения. Доставка по принципу "от двери до двери" с использованием вагонов привлеченного парка и контейнеров. Полная интеграция с АСУ ДКР.</p>
       </div>
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800" class="card-img-top" alt="Railway">
+      <div class="col-md-6 order-md-1">
+        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800" class="service-img" alt="Railway">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
+    <div class="row service-row">
       <div class="col-md-6">
         <h3>Автомобильные перевозки</h3>
-        <p>По территории стран СНГ, одна из самых распространенных услуг. Мы предоставляем отслеживание по GPS по всему маршруту. Грузоперевозки по г. Алматы, включая переезды квартирные и офисные.</p>
+        <p>Широкая сеть маршрутов по СНГ. Современный автопарк с GPS-мониторингом 24/7. Также осуществляем городские перевозки по Алматы, включая профессиональные офисные переезды.</p>
       </div>
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=800" class="card-img-top" alt="Trucking">
+        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=800" class="service-img" alt="Trucking">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
-      <div class="col-md-6">
+    <div class="row service-row">
+      <div class="col-md-6 order-md-2">
         <h3>Морские перевозки</h3>
-        <p>Самый удобный и экономичный способ доставки грузов на дальние расстояния. Транспортировки водным путем предоставляют гарантии сохранности груза и упрощают перевозку генеральных грузов.</p>
+        <p>Самый выгодный способ транспортировки на дальние расстояния. Мы гарантируем сохранность груза и предлагаем лучшие фрахтовые ставки через проверенных партнеров.</p>
       </div>
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=800" class="card-img-top" alt="Ocean Freight">
+      <div class="col-md-6 order-md-1">
+        <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=800" class="service-img" alt="Ocean Freight">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
+    <div class="row service-row">
       <div class="col-md-6">
         <h3>Мультимодальные перевозки</h3>
-        <p>Комбинирование различных видов транспорта (море, жд, авто) для оптимизации сроков и стоимости. Полный контроль логистической цепочки нашими специалистами.</p>
+        <p>Идеальное сочетание скорости и цены. Мы выстраиваем сложные цепочки с использованием нескольких видов транспорта, полностью контролируя каждый этап перегрузки.</p>
       </div>
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1594818379496-da1e345b0ded?q=80&w=800" class="card-img-top" alt="Multimodal">
+        <img src="https://images.unsplash.com/photo-1594818379496-da1e345b0ded?q=80&w=800" class="service-img" alt="Multimodal">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
-      <div class="col-md-6">
+    <div class="row service-row">
+      <div class="col-md-6 order-md-2">
         <h3>Негабаритный груз</h3>
-        <p>Погрузка согласно ТУ и транспортировка негабаритных грузов разной сложности. Расчет степени негабаритности и разработка индивидуальных схем погрузки.</p>
+        <p>Сложные инженерные решения для перевозки техники и оборудования. Расчет схем погрузки, согласование маршрутов и полное техническое сопровождение.</p>
       </div>
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1586191582159-6084da8849ad?q=80&w=800" class="card-img-top" alt="Oversize load">
+      <div class="col-md-6 order-md-1">
+        <img src="https://images.unsplash.com/photo-1586191582159-6084da8849ad?q=80&w=800" class="service-img" alt="Oversize load">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
+    <div class="row service-row">
       <div class="col-md-6">
         <h3>Авиаперевозки грузов</h3>
-        <p>Максимально быстрая доставка по всему миру. Мы берем на себя работу с авиалиниями, терминальную обработку и доставку до конечного склада.</p>
+        <p>Когда время имеет решающее значение. Прямые контракты с авиалиниями позволяют нам доставлять грузы в кратчайшие сроки с минимальными затратами на логистику.</p>
       </div>
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1521567097888-2c5fc24a8eBB?q=80&w=800" class="card-img-top" alt="Air Freight">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?q=80&w=800" class="service-img" alt="Air Freight">
       </div>
     </div>
     <hr>
 
-    <div class="row align-items-center">
-      <div class="col-md-6">
+    <div class="row service-row">
+      <div class="col-md-6 order-md-2">
         <h3>Складские услуги</h3>
-        <p>Партнерские склады класса А и В, услуги оперативной погрузки и разгрузки, ответственное хранение и упаковка грузов.</p>
+        <p>Полный спектр складской обработки: ответственное хранение, маркировка, упаковка и консолидация грузов на современных терминалах класса А.</p>
       </div>
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800" class="card-img-top" alt="Warehouse">
+      <div class="col-md-6 order-md-1">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800" class="service-img" alt="Warehouse">
       </div>
     </div>
   </div>
 
-  <footer class="bg-dark text-white py-4 mt-5">
+  <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
+      <div class="row text-center">
+        <div class="col-md-4 mb-3">
           <strong>Altyn Zhol</strong><br>
-          Надежная логистика
+          Надежная логистика с 2018 года
         </div>
-        <div class="col-md-4">
-          <strong>Контакт</strong><br>
+        <div class="col-md-4 mb-3">
+          <strong>Связаться</strong><br>
           8 (727) 337 7396
         </div>
-        <div class="col-md-4">
-          <strong>Адрес</strong><br>
+        <div class="col-md-4 mb-3">
+          <strong>Наш адрес</strong><br>
           г. Алматы, ул. Курмангалиева 35/12
         </div>
       </div>
