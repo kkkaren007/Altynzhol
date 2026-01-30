@@ -1,266 +1,294 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  
-  <title>Алтын Жол: Транспортно-логистическая компания</title>
-  
-  <style>
-    :root {
-      --main-green: #1B4332;
-      --accent-gold: #D4AF37;
-      --light-gray: #f8f9fa;
-      --text-dark: #2d2d2d;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Алтын Жол: Транспортно-логистическая компания</title>
+  
+  <style>
+    :root {
+      --main-green: #1B4332; /* Глубокий зеленый как на скриншоте */
+      --accent-gold: #D4AF37; /* Золотой акцент */
+      --light-gray: #f8f9fa;
+      --text-dark: #2d2d2d;
+    }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-dark);
-      background-color: #fff;
-      overflow-x: hidden;
-    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: #fff;
+    }
 
-    @media print {
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .hero-logo-section { background-color: #fff !important; }
-      .navbar { display: none; }
-    }
+    /* Обеспечение цветной печати для PDF */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .hero-logo-section { background-color: var(--main-green) !important; }
+      .navbar { display: none; } /* Скрываем навигацию в PDF для чистоты */
+    }
 
-    h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-    /* Навигация */
-    .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid var(--main-green);
-      padding: 10px 0;
-    }
-    
-    .nav-link {
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      color: var(--text-dark) !important;
-    }
-    .nav-link:hover { color: var(--accent-gold) !important; }
+    /* Навигация */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--main-green);
+      padding: 10px 0;
+    }
+    .nav-link {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--text-dark) !important;
+    }
+    .nav-link:hover { color: var(--accent-gold) !important; }
 
-    /* Главный блок */
-    .hero-logo-section {
-      min-height: 50vh;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 100px;
-    }
-    .hero-logo-section img {
-      max-height: 300px;
-      width: auto;
-      max-width: 90%;
-      object-fit: contain;
-    }
+    /* Главный блок с логотипом вместо карусели */
+    .hero-logo-section {
+      height: 65vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+    }
+    .hero-logo-section img {
+      max-height: 70%;
+      max-width: 85%;
+      object-fit: contain;
+    }
 
-    /* Адаптивность заголовков */
-    h2 {
-      font-size: 1.75rem;
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-      padding-bottom: 15px;
-    }
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--accent-gold);
-    }
+    /* Секции */
+    section { padding: 80px 0; }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent-gold);
+    }
 
-    /* Услуги */
-    .service-block {
-      background: var(--light-gray);
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 30px;
-      border: 1px solid #eee;
-    }
-    
-    .service-img {
-      border-radius: 15px;
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
+    /* Центрированный блок "О нас" */
+    .about-section {
+      padding: 100px 15px;
+      text-align: center;
+    }
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .about-lead {
+      color: var(--main-green);
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
 
-    @media (min-width: 768px) {
-      h2 { font-size: 2.5rem; }
-      .service-img { height: 320px; margin-bottom: 0; }
-      .service-block { padding: 40px; }
-    }
+    /* Карточки услуг */
+    .service-block {
+      background: var(--light-gray);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      border: 1px solid #eee;
+    }
+    .service-img {
+      border-radius: 15px;
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
 
-    /* О нас */
-    .about-section { padding: 60px 15px; text-align: center; }
-    .about-content { max-width: 900px; margin: 0 auto; }
-    .about-lead { color: var(--main-green); font-weight: 600; font-size: 1.1rem; }
+    /* Преимущества */
+    .advantage-card {
+      text-align: center;
+      padding: 20px;
+    }
+    .advantage-card img { width: 70px; margin-bottom: 15px; }
 
-    /* Преимущества */
-    .advantage-card { text-align: center; padding: 15px; margin-bottom: 20px; }
-    .advantage-card img { width: 60px; margin-bottom: 15px; }
-    .advantage-card h6 { font-size: 0.9rem; font-weight: 600; }
-
-    footer {
-      background: var(--main-green);
-      color: white;
-      padding: 40px 0 20px;
-    }
-    footer a { color: var(--accent-gold); text-decoration: none; }
-  </style>
+    footer {
+      background: var(--main-green);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    footer a { color: var(--accent-gold); text-decoration: none; }
+  </style>
 </head>
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="Altyn Zhol" height="40">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navRes" aria-controls="navRes" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navRes">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#aboutus">О нас</a></li>
-          <li class="nav-item"><a class="nav-link" href="#price">Услуги</a></li>
-          <li class="nav-item"><a class="nav-link" href="#preimushetstva">Преимущества</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Altyn Zhol" height="50">
+      </a>
+      <div class="collapse navbar-collapse" id="navRes">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#aboutus">О нас</a></li>
+          <li class="nav-item"><a class="nav-link" href="#price">Услуги</a></li>
+          <li class="nav-item"><a class="nav-link" href="#preimushetstva">Преимущества</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <div class="hero-logo-section">
-  <img src="logo.png" alt="Altyn Zhol Large Logo">
+  <img src="logo.png" alt="Altyn Zhol Large Logo">
 </div>
 
 <div class="about-section" id="aboutus">
-  <div class="container">
-    <div class="about-content">
-      <h2>О нашей компании</h2>
-      <p class="about-lead">Эффективность, проверенная временем и государством.</p>
-      <p>Наша компания образована в 2018 году и сразу была удостоена награды <strong>"Открытие года"</strong>. Мы вносим значимый вклад в развитие экономики Казахстана, постоянно расширяя сеть партнеров в Казахстане, странах СНГ и Европе.</p>
-    </div>
-  </div>
+  <div class="container">
+    <div class="about-content">
+      <h2>О нашей компании</h2>
+      <p class="about-lead">Эффективность, проверенная временем и государством.</p>
+      <p>Наша компания образована в 2018 году и сразу была удостоена награды <strong>"Открытие года"</strong>. Мы вносим значимый вклад в развитие экономики Казахстана, постоянно расширяя сеть партнеров в Казахстане, странах СНГ и Европы.</p>
+    </div>
+  </div>
 </div>
 
-<div class="bg-light" id="price" style="padding: 60px 0;">
-  <div class="container">
-    <h2>Наши услуги</h2>
-    
-    <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800" class="service-img" alt="Таможенное оформление">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h3>Таможенное оформление</h3>
-        <p>Профессиональные брокеры и полная подготовка документов в соответствии с законодательством РК и ТС. Мы обеспечиваем быструю оплату пошлин и предварительное информирование.</p>
-      </div>
-    </div>
+<div class="bg-light" id="price" style="padding: 100px 0;">
+  <div class="container">
+    <h2 class="mb-5">Наши услуги</h2>
+    
+    <div class="row service-block align-items-center">
+      <div class="col-md-6 order-md-2">
+        <img src="https://globe-medical.com/images/services/01-customs-clearance-m.jpg" alt="Таможня">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h3>Таможенное оформление</h3>
+        <p>Профессиональные брокеры и полная подготовка документов. Мы берем на себя все сложности законодательства РК и ТС, обеспечивая быструю оплату пошлин и предварительное информирование.</p>
+      </div>
+    </div>
 
-    <div class="row service-block align-items-center">
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=800" class="service-img" alt="ЖД перевозки">
-      </div>
-      <div class="col-md-6">
-        <h3>Железнодорожные перевозки</h3>
-        <p>Экспедирование грузов во всех сообщениях. Контейнерные перевозки "от двери до двери" с регистрацией в АСУ ДКР и полным электронным документооборотом.</p>
-      </div>
-    </div>
+    <div class="row service-block align-items-center">
+      <div class="col-md-6">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1c_jXpEcF3kmCn41yYDBn_W4yZ0W0cV2oyA&s" class="service-img" alt="ЖД">
+      </div>
+      <div class="col-md-6">
+        <h3>Железнодорожные перевозки</h3>
+        <p>Экспедирование грузов во всех сообщениях. Контейнерные перевозки "от двери до двери" с регистрацией в АСУ ДКР и полным электронным документооборотом.</p>
+      </div>
+    </div>
 
-    <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800" class="service-img" alt="Автомобильные перевозки">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h3>Автомобильные перевозки</h3>
-        <p>Широкая сеть маршрутов по СНГ с GPS-мониторингом 24/7. Также осуществляем профессиональные офисные и квартирные переезды по г. Алматы.</p>
-      </div>
-    </div>
+    <div class="row service-block align-items-center">
+      <div class="col-md-6 order-md-2">
+        <img src="https://www.contship.ru/manager/publikacii/preimushchestva-gruzoperevozok-avtotransportom-1.jpg" class="service-img" alt="Авто">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h3>Автомобильные перевозки</h3>
+        <p>Широкая сеть маршрутов по СНГ с GPS-мониторингом 24/7. Также осуществляем профессиональные офисные и квартирные переезды по г. Алматы.</p>
+      </div>
+    </div>
 
-    <div class="row service-block align-items-center">
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=800" class="service-img" alt="Морские перевозки">
-      </div>
-      <div class="col-md-6">
-        <h3>Морские перевозки</h3>
-        <p>Экономичный способ доставки на дальние расстояния. Гарантия сохранности и лучшие фрахтовые ставки через глобальную сеть партнеров.</p>
-      </div>
-    </div>
+    <div class="row service-block align-items-center">
+      <div class="col-md-6">
+        <img src="https://sakh-exp.com/upload/iblock/e5f/e5f477ddef182c106c3dd47e2436c215.jpg" class="service-img" alt="Море">
+      </div>
+      <div class="col-md-6">
+        <h3>Морские перевозки</h3>
+        <p>Самый выгодный способ транспортировки на дальние расстояния. Гарантия сохранности и лучшие фрахтовые ставки через глобальную сеть партнеров.</p>
+      </div>
+    </div>
 
-    <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1586191582159-6084da8849ad?auto=format&fit=crop&q=80&w=800" class="service-img" alt="Негабаритный груз">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h3>Негабаритный груз</h3>
-        <p>Транспортировка сложной техники и крупногабаритного оборудования. Расчет схем погрузки и индивидуальное сопровождение маршрутов.</p>
-      </div>
-    </div>
-  </div>
+    <div class="row service-block align-items-center">
+      <div class="col-md-6 order-md-2">
+        <img src="https://kontakt-express.ru/upload/medialibrary/0b5/l0axemmd98t1yyg0di7nhd7iiqzvc3jv/2.jpg" class="service-img" alt="Мультимодальные">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h3>Мультимодальные перевозки</h3>
+        <p>Оптимальное сочетание видов транспорта для минимизации сроков и затрат. Полный контроль логистической цепочки от погрузки до выгрузки.</p>
+      </div>
+    </div>
+
+    <div class="row service-block align-items-center">
+      <div class="col-md-6">
+        <img src="https://cs-ved.ru/wp-content/uploads/2025/08/negabarit.jpg" class="service-img" alt="Негабарит">
+      </div>
+      <div class="col-md-6">
+        <h3>Негабаритный груз</h3>
+        <p>Транспортировка техники и оборудования любой сложности. Расчет схем погрузки, согласование маршрутов и сопровождение грузов.</p>
+      </div>
+    </div>
+
+    <div class="row service-block align-items-center">
+      <div class="col-md-6 order-md-2">
+        <img src="https://ekb.donlogistic.ru/wp-content/uploads/2020/10/aviaperevozki-negabarit.jpg" class="service-img" alt="Авиа">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h3>Авиаперевозки грузов</h3>
+        <p>Максимально быстрая доставка ценных и срочных грузов по всему миру. Прямые контракты с авиалиниями и терминальная обработка.</p>
+      </div>
+    </div>
+
+    <div class="row service-block align-items-center">
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800" class="service-img" alt="Склад">
+      </div>
+      <div class="col-md-6">
+        <h3>Складские услуги</h3>
+        <p>Ответственное хранение на терминалах класса А. Услуги оперативной погрузки, маркировки, упаковки и консолидации ваших товаров.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container" id="preimushetstva" style="padding: 60px 0;">
-  <h2>Почему выбирают нас</h2>
-  <div class="row">
-    <div class="col-6 col-md-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1162/1162280.png" alt="Опыт">
-      <h6>Богатый опыт</h6>
-    </div>
-    <div class="col-6 col-md-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2632/2632280.png" alt="Ставки">
-      <h6>Гибкие ставки</h6>
-    </div>
-    <div class="col-6 col-md-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/950/950299.png" alt="Скорость">
-      <h6>Оперативность</h6>
-    </div>
-    <div class="col-6 col-md-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2912/2912761.png" alt="Мониторинг">
-      <h6>GPS Мониторинг</h6>
-    </div>
-  </div>
+<div class="container" id="preimushetstva" style="padding: 100px 0;">
+  <h2>Почему выбирают нас</h2>
+  <div class="row">
+    <div class="col-6 col-lg-3 advantage-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1162/1162280.png" alt="Опыт">
+      <h6>Богатый опыт</h6>
+    </div>
+    <div class="col-6 col-lg-3 advantage-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2632/2632280.png" alt="Ставки">
+      <h6>Гибкие ставки</h6>
+    </div>
+    <div class="col-6 col-lg-3 advantage-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/950/950299.png" alt="Скорость">
+      <h6>Оперативность</h6>
+    </div>
+    <div class="col-6 col-lg-3 advantage-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2912/2912761.png" alt="Мониторинг">
+      <h6>GPS Мониторинг</h6>
+    </div>
+  </div>
 </div>
 
 <footer id="partners">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <h4>Altyn Zhol</h4>
-        <p>Ваш золотой путь в логистике.</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Контакты</h5>
-        <p>📞 8 (727) 337 7396</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Офис</h5>
-        <p>г. Алматы, ул. Курмангалиева 35/12</p>
-      </div>
-    </div>
-    <hr style="background: rgba(255,255,255,0.1);">
-    <p class="small">© 2026 Алтын Жол. Все права защищены.</p>
-  </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h4>Altyn Zhol</h4>
+        <p>Ваш золотой путь в логистике.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5>Контакты</h5>
+        <p>📞 8 (727) 337 7396 </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5>Офис</h5>
+        <p>г. Алматы, ул. Курмангалиева 35/12</p>
+      </div>
+    </div>
+    <hr style="background: rgba(255,255,255,0.1);">
+    <p class="small">© 2026 Алтын Жол. Все права защищены.</p>
+  </div>
 </footer>
 
 </body>
