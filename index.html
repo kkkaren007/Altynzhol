@@ -10,8 +10,8 @@
   
   <style>
     :root {
-      --main-green: #1B4332;
-      --accent-gold: #D4AF37;
+      --main-green: #1B4332; /* Глубокий зеленый как на скриншоте */
+      --accent-gold: #D4AF37; /* Золотой акцент */
       --light-gray: #f8f9fa;
       --text-dark: #2d2d2d;
     }
@@ -22,9 +22,11 @@
       background-color: #fff;
     }
 
+    /* Обеспечение цветной печати для PDF */
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .hero-logo-section { background-color: var(--main-green) !important; }
+      .navbar { display: none; } /* Скрываем навигацию в PDF для чистоты */
     }
 
     h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
@@ -41,23 +43,23 @@
       text-transform: uppercase;
       font-size: 0.85rem;
       letter-spacing: 1px;
-      margin: 0 10px;
       color: var(--text-dark) !important;
     }
     .nav-link:hover { color: var(--accent-gold) !important; }
 
-    /* Блок вместо карусели */
+    /* Главный блок с логотипом вместо карусели */
     .hero-logo-section {
-      height: 60vh;
+      height: 65vh;
       background-color: var(--main-green);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 80px; /* Отступ под фиксированную навигацию */
+      margin-top: 80px;
     }
     .hero-logo-section img {
-      max-height: 80%;
-      max-width: 90%;
+      max-height: 70%;
+      max-width: 85%;
       object-fit: contain;
     }
 
@@ -65,7 +67,7 @@
     section { padding: 80px 0; }
     h2 {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
       position: relative;
       padding-bottom: 15px;
     }
@@ -80,25 +82,36 @@
       background: var(--accent-gold);
     }
 
+    /* Центрированный блок "О нас" */
+    .about-section {
+      padding: 100px 15px;
+      text-align: center;
+    }
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .about-lead {
+      color: var(--main-green);
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+
     /* Карточки услуг */
     .service-block {
       background: var(--light-gray);
       border-radius: 20px;
       padding: 40px;
       margin-bottom: 40px;
-      transition: transform 0.3s ease;
       border: 1px solid #eee;
-    }
-    .service-block:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
     .service-img {
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       width: 100%;
-      height: 300px;
+      height: 320px;
       object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
     /* Преимущества */
@@ -106,9 +119,8 @@
       text-align: center;
       padding: 20px;
     }
-    .advantage-card img { width: 80px; margin-bottom: 15px; }
+    .advantage-card img { width: 70px; margin-bottom: 15px; }
 
-    /* Футер */
     footer {
       background: var(--main-green);
       color: white;
@@ -123,17 +135,13 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="Altyn Zhol Logo" height="60">
+        <img src="logo.png" alt="Altyn Zhol" height="50">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navRes">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navRes">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="#aboutus">О нас</a></li>
           <li class="nav-item"><a class="nav-link" href="#price">Услуги</a></li>
           <li class="nav-item"><a class="nav-link" href="#preimushetstva">Преимущества</a></li>
-          <li class="nav-item"><a class="nav-link" href="#partners">Партнеры</a></li>
         </ul>
       </div>
     </div>
@@ -144,139 +152,57 @@
   <img src="logo.png" alt="Altyn Zhol Large Logo">
 </div>
 
-<div class="container" id="aboutus" style="padding: 100px 15px;">
-  <div class="row justify-content-center">
-    <div class="col-lg-10 text-center">
+<div class="about-section" id="aboutus">
+  <div class="container">
+    <div class="about-content">
       <h2>О нашей компании</h2>
-      <p class="lead" style="color: var(--accent-gold); font-weight: 600;">Эффективность, проверенная временем и государством.</p>
-      <p style="font-size: 1.1rem; line-height: 1.8;">Наша компания образована в 2018 году и сразу была удостоена награды <strong>"Открытие года"</strong>. Мы вносим значимый вклад в развитие экономики Казахстана, постоянно расширяя сеть партнеров в Казахстане, странах СНГ и Европы, что позволило разнообразить спектр транспортно-логистических услуг.</p>
+      <p class="about-lead">Эффективность, проверенная временем и государством.</p>
+      <p>Наша компания образована в 2018 году и сразу была удостоена награды <strong>"Открытие года"</strong>. Мы вносим значимый вклад в развитие экономики Казахстана, постоянно расширяя сеть партнеров в Казахстане, странах СНГ и Европы.</p>
     </div>
   </div>
 </div>
 
-<div class="bg-light" id="price" style="padding: 100px 0;">
+<div class="bg-light" id="price" style="padding: 80px 0;">
   <div class="container">
-    <h2 class="mb-5">Наши услуги</h2>
+    <h2>Наши услуги</h2>
     
     <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800" class="service-img" alt="Таможня">
+      <div class="col-md-6 order-md-2 text-center">
+        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800" class="service-img" alt="ЖД Перевозки">
       </div>
       <div class="col-md-6 order-md-1">
-        <h3>Таможенное оформление</h3>
-        <p>Профессиональные брокеры и полная подготовка документов. Мы берем на себя все сложности законодательства РК и ТС, обеспечивая быструю оплату пошлин и предварительное информирование.</p>
-      </div>
-    </div>
-
-    <div class="row service-block align-items-center">
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800" class="service-img" alt="ЖД">
-      </div>
-      <div class="col-md-6">
         <h3>Железнодорожные перевозки</h3>
-        <p>Экспедирование грузов во всех сообщениях. Контейнерные перевозки "от двери до двери" с регистрацией в АСУ ДКР и полным электронным документооборотом.</p>
+        <p>Надежные контейнерные перевозки по всему СНГ. Экспедирование грузов во всех сообщениях с регистрацией в АСУ ДКР.</p>
       </div>
     </div>
 
     <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=800" class="service-img" alt="Авто">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h3>Автомобильные перевозки</h3>
-        <p>Широкая сеть маршрутов по СНГ с GPS-мониторингом 24/7. Также осуществляем профессиональные офисные и квартирные переезды по г. Алматы.</p>
-      </div>
-    </div>
-
-    <div class="row service-block align-items-center">
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=800" class="service-img" alt="Море">
+      <div class="col-md-6 text-center">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800" class="service-img" alt="Таможня">
       </div>
       <div class="col-md-6">
-        <h3>Морские перевозки</h3>
-        <p>Самый выгодный способ транспортировки на дальние расстояния. Гарантия сохранности и лучшие фрахтовые ставки через глобальную сеть партнеров.</p>
-      </div>
-    </div>
-
-    <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1594818379496-da1e345b0ded?q=80&w=800" class="service-img" alt="Мультимодальные">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h3>Мультимодальные перевозки</h3>
-        <p>Оптимальное сочетание видов транспорта для минимизации сроков и затрат. Полный контроль логистической цепочки от погрузки до выгрузки.</p>
-      </div>
-    </div>
-
-    <div class="row service-block align-items-center">
-      <div class="col-md-6">
-        <img src="https://cs-ved.ru/wp-content/uploads/2025/08/negabarit.jpg" class="service-img" alt="Негабарит">
-      </div>
-      <div class="col-md-6">
-        <h3>Негабаритный груз</h3>
-        <p>Транспортировка техники и оборудования любой сложности. Расчет схем погрузки, согласование маршрутов и сопровождение грузов.</p>
-      </div>
-    </div>
-
-    <div class="row service-block align-items-center">
-      <div class="col-md-6 order-md-2">
-        <img src="https://ekb.donlogistic.ru/wp-content/uploads/2020/10/aviaperevozki-negabarit.jpg" class="service-img" alt="Авиа">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h3>Авиаперевозки грузов</h3>
-        <p>Максимально быстрая доставка ценных и срочных грузов по всему миру. Прямые контракты с авиалиниями и терминальная обработка.</p>
-      </div>
-    </div>
-
-    <div class="row service-block align-items-center">
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800" class="service-img" alt="Склад">
-      </div>
-      <div class="col-md-6">
-        <h3>Складские услуги</h3>
-        <p>Ответственное хранение на терминалах класса А. Услуги оперативной погрузки, маркировки, упаковки и консолидации ваших товаров.</p>
+        <h3>Таможенное оформление</h3>
+        <p>Профессиональные брокеры и полная подготовка документов. Мы обеспечиваем быструю оплату пошлин и предварительное информирование.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container" id="preimushetstva" style="padding: 100px 0;">
-  <h2>Почему выбирают нас</h2>
-  <div class="row">
-    <div class="col-6 col-lg-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1162/1162280.png" alt="Опыт">
-      <h6>Богатый опыт</h6>
-    </div>
-    <div class="col-6 col-lg-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2632/2632280.png" alt="Ставки">
-      <h6>Гибкие ставки</h6>
-    </div>
-    <div class="col-6 col-lg-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/950/950299.png" alt="Скорость">
-      <h6>Оперативность</h6>
-    </div>
-    <div class="col-6 col-lg-3 advantage-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2912/2912761.png" alt="Мониторинг">
-      <h6>GPS Мониторинг</h6>
-    </div>
-  </div>
-</div>
-
-<footer>
+<footer id="partners">
   <div class="container text-center">
     <div class="row">
       <div class="col-md-4 mb-4">
         <h4>Altyn Zhol</h4>
-        <p>Ваш золотой путь в логистике. Доставляем ценности, строим доверие.</p>
+        <p>Ваш золотой путь в логистике.</p>
       </div>
       <div class="col-md-4 mb-4">
         <h5>Контакты</h5>
-        <p>📞 <a href="tel:87273377396">8 (727) 337 7396</a><br>
-           📧 <a href="mailto:rrruslaaan@gmail.com">rrruslaaan@gmail.com</a></p>
+        <p>📞 8 (727) 337 7396<br>
+           📧 rrruslaaan@gmail.com</p>
       </div>
       <div class="col-md-4 mb-4">
-        <h5>Наш офис</h5>
-        <p>📍 г. Алматы, ул. Курмангалиева 35/12</p>
+        <h5>Офис</h5>
+        <p>г. Алматы, ул. Курмангалиева 35/12</p>
       </div>
     </div>
     <hr style="background: rgba(255,255,255,0.1);">
